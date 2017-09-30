@@ -1,0 +1,15 @@
+sandbox:
+  image: codeforpoznan/django-onboarding
+  # build: .
+  entrypoint: python manage.py runserver 0.0.0.0:8000
+  # entrypoint: tail -f /dev/null
+  working_dir: /django-onboarding
+  ports:
+    - 8000:8000
+  links:
+    - db:db
+  volumes:
+    - .:/django-onboarding
+
+db:
+  image: postgres
